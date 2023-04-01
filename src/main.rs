@@ -15,19 +15,44 @@ use miden_vm::StackInputs;
 ///
 /// While this is technically not a Miden library, it should be relatively easy to convert it to
 /// one.
-pub const TIP5_LIB: &str = "proc.tip5 push.5 add end begin push.3 call.tip5 end";
+// todo! use constants from their definition in tip5 instead of hardcoding them
+pub const TIP5_LIB: &str = "
+    proc.tip5_init
+        # push.0
+        # mem_store.0
+        push.7
+        mem_store.1
+        push.26
+        mem_store.2
+        push.63
+        mem_store.3
+        push.124
+        mem_store.4
+        push.215
+        mem_store.5
+        add
+    end
+
+    proc.tip5
+       # round_0
+       # round_1
+       # round_2
+       # round_3
+       # round_4
+    end
+
+    begin
+        call.tip5_init
+        call.tip5
+    end
+";
 
 fn main() {
     let assembler = Assembler::default()
         .with_library(&StdLibrary::default())
-        .map_err(|err| format!("Failed to load stdlib - {err}"))
-        .unwrap()
-        .with_debug_mode(true);
-
-    let program = assembler
-        .compile(TIP5_LIB)
-        .map_err(|err| format!("Failed to compile program - {err}"))
         .unwrap();
+
+    let program = assembler.compile(TIP5_LIB).unwrap();
 
     let (outputs, proof) = prove(
         &program,
@@ -36,8 +61,6 @@ fn main() {
         ProofOptions::default(),
     )
     .unwrap();
-
-    assert_eq!(Some(&8), outputs.stack().first());
 
     let program_info = ProgramInfo::new(program.hash(), Kernel::default());
     match verify(program_info, StackInputs::default(), outputs, proof) {
