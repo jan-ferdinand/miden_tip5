@@ -68,3 +68,31 @@ fn main() {
         Err(msg) => println!("Something went terribly wrong: {msg}"),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use miden_vm::execute;
+    use miden_vm::MemAdviceProvider;
+    use miden_vm::StackInputs;
+
+    use crate::*;
+
+    #[test]
+    fn compliance() {
+        let assembler = Assembler::default()
+            .with_library(&StdLibrary::default())
+            .unwrap();
+
+        let program = assembler.compile(TIP5_LIB).unwrap();
+
+        let stack_inputs = StackInputs::default();
+        let mut advice_provider = MemAdviceProvider::default();
+        let trace = execute(&program, stack_inputs.clone(), &mut advice_provider).unwrap();
+        let advice_provider = MemAdviceProvider::default();
+        let trace = execute(&program, stack_inputs, advice_provider).unwrap();
+        let public_output = trace.stack_outputs().stack();
+
+        let expected_output = vec![0; 16];
+        assert_eq!(expected_output, public_output);
+    }
+}
