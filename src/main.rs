@@ -319,10 +319,357 @@ pub const TIP5_LIB: &str = "
         swap.14 exp.7 swap.14
         swap.15 exp.7 swap.15
     end
+
+    proc.tip5_mds_matrix_mul.16
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        add add add add add
+        add add add add add 
+        add add add add add
+        loc_store.0
+
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.1
+
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.2
+
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.3
+
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.4
+
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.5
+
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.6
+
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.7
+
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.8
+
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.9
+
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.10
+
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.11
+
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.12
+
+        dup.15 mul.28750
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.13
+
+        dup.15 mul.1108
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.14
+
+        dup.15 mul.61402
+        dup.15 mul.17845
+        dup.15 mul.26798
+        dup.15 mul.59689
+        dup.15 mul.12021
+        dup.15 mul.40901
+        dup.15 mul.41351
+        dup.15 mul.27521
+        dup.15 mul.56951
+        dup.15 mul.12034
+        dup.15 mul.53865
+        dup.15 mul.43244
+        dup.15 mul.7454
+        dup.15 mul.33823
+        dup.15 mul.28750
+        dup.15 mul.1108
+        add add add add add
+        add add add add add
+        add add add add add
+        loc_store.15
+
+        drop drop drop drop
+        drop drop drop drop
+        drop drop drop drop
+        drop drop drop drop
+        loc_load.0 loc_load.1 loc_load.2 loc_load.3
+        loc_load.4 loc_load.5 loc_load.6 loc_load.7
+        loc_load.8 loc_load.9 loc_load.10 loc_load.11
+        loc_load.12 loc_load.13 loc_load.14 loc_load.15
     end
 
     proc.tip5_round_0
         exec.tip5_sbox_layer
+        exec.tip5_mds_matrix_mul
         # add round constants
         add.13630775303355457758
         swap.1  add.16896927574093233874 swap.1 
@@ -344,6 +691,7 @@ pub const TIP5_LIB: &str = "
 
     proc.tip5_round_1
         exec.tip5_sbox_layer
+        exec.tip5_mds_matrix_mul
         # add round constants
         add.17532528648579384106
         swap.1  add.5216785850422679555  swap.1
@@ -365,6 +713,7 @@ pub const TIP5_LIB: &str = "
 
     proc.tip5_round_2
         exec.tip5_sbox_layer
+        exec.tip5_mds_matrix_mul
         # add round constants
         add.13835756199368269249
         swap.1  add.1648753455944344172  swap.1
@@ -386,6 +735,7 @@ pub const TIP5_LIB: &str = "
 
     proc.tip5_round_3
         exec.tip5_sbox_layer
+        exec.tip5_mds_matrix_mul
         # add round constants
         add.549990724933663297
         swap.1  add.4901984846118077401  swap.1
@@ -407,6 +757,7 @@ pub const TIP5_LIB: &str = "
 
     proc.tip5_round_4
         exec.tip5_sbox_layer
+        exec.tip5_mds_matrix_mul
         # add round constants
         add.3350107164315270407
         swap.1  add.17715942834299349177 swap.1
