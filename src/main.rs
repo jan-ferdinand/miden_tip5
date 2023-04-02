@@ -275,25 +275,50 @@ pub const TIP5_LIB: &str = "
         push.255 mem_store.255
     end
 
-    proc.tip5_sbox_layer
+    proc.tip5_split_and_lookup
         # Since the Tip5 initialization procedure has dumped the lookup table into addresses
-        # 0..255, we can simply use the memory load instruction to do the lookup.
-        mem_load
-        swap.1  mem_load swap.1
-        swap.2  mem_load swap.2
-        swap.3  mem_load swap.3
-        swap.4  exp.7    swap.4
-        swap.5  exp.7    swap.5
-        swap.6  exp.7    swap.6
-        swap.7  exp.7    swap.7
-        swap.8  exp.7    swap.8
-        swap.9  exp.7    swap.9
-        swap.10 exp.7    swap.10
-        swap.11 exp.7    swap.11
-        swap.12 exp.7    swap.12
-        swap.13 exp.7    swap.13
-        swap.14 exp.7    swap.14
-        swap.15 exp.7    swap.15
+        # 0..255, we can simply use the memory load instruction to do the lookups.
+        u32split                    # _ lo hi
+        u32checked_divmod.65536     # _ lo hi_lo hi_hi
+        u32checked_divmod.256       # _ lo hi_lo hi_hi_lo hi_hi_hi
+        mem_load mul.256 swap.1     # _ lo hi_lo hi_hi_hi hi_hi_lo
+        mem_load add                # _ lo hi_lo hi_hi
+        mul.256 swap.1              # _ lo hi_hi hi_lo
+        u32checked_divmod.256       # _ lo hi_hi hi_lo_lo hi_lo_hi
+        mem_load mul.256 swap.1     # _ lo hi_hi hi_lo_hi hi_lo_lo
+        mem_load add                # _ lo hi_hi hi_lo
+        add                         # _ lo hi
+        swap.1                      # _ hi lo
+        u32checked_divmod.65536     # _ hi lo_lo lo_hi
+        u32checked_divmod.256       # _ hi lo_lo lo_hi_lo lo_hi_hi
+        mem_load mul.256 swap.1     # _ hi lo_lo lo_hi_hi lo_hi_lo
+        mem_load add                # _ hi lo_lo lo_hi
+        mul.256 swap.1              # _ hi lo_hi lo_lo
+        u32checked_divmod.256       # _ hi lo_hi lo_lo_lo lo_lo_hi
+        mem_load mul.256 swap.1     # _ hi lo_hi lo_lo_hi lo_lo_lo
+        mem_load add                # _ hi lo_hi lo_lo
+        add                         # _ hi lo
+        add                         # _ result
+    end
+
+    proc.tip5_sbox_layer
+        exec.tip5_split_and_lookup
+        swap.1  exec.tip5_split_and_lookup swap.1
+        swap.2  exec.tip5_split_and_lookup swap.2
+        swap.3  exec.tip5_split_and_lookup swap.3
+        swap.4  exp.7 swap.4
+        swap.5  exp.7 swap.5
+        swap.6  exp.7 swap.6
+        swap.7  exp.7 swap.7
+        swap.8  exp.7 swap.8
+        swap.9  exp.7 swap.9
+        swap.10 exp.7 swap.10
+        swap.11 exp.7 swap.11
+        swap.12 exp.7 swap.12
+        swap.13 exp.7 swap.13
+        swap.14 exp.7 swap.14
+        swap.15 exp.7 swap.15
+    end
     end
 
     proc.tip5_round_0
