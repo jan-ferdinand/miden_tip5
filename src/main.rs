@@ -325,8 +325,8 @@ pub const TIP5_LIB: &str = "
     end
 
     begin
-        call.tip5_init
-        call.tip5
+        exec.tip5_init
+        exec.tip5
     end
 ";
 
