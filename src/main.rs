@@ -822,6 +822,9 @@ mod tests {
     use miden_vm::MemAdviceProvider;
     use miden_vm::StackInputs;
 
+    use twenty_first::shared_math::b_field_element::BFieldElement;
+    use twenty_first::shared_math::tip5::Tip5;
+
     use crate::*;
 
     #[test]
@@ -833,14 +836,26 @@ mod tests {
         let program = assembler.compile(TIP5_LIB).unwrap();
 
         let stack_inputs =
-            StackInputs::try_from_values([16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-                .unwrap();
+            StackInputs::try_from_values([0, 0, 0, 0, 1, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]).unwrap();
         let advice_provider = MemAdviceProvider::default();
         let trace = execute(&program, stack_inputs, advice_provider).unwrap();
         let public_output = trace.stack_outputs().stack();
 
+        let input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            .map(BFieldElement::new)
+            .into_iter()
+            .rev()
+            .collect::<Vec<_>>()
+            .try_into()
+            .unwrap();
+        let expected_digest = Tip5::hash_10(&input);
+        let expected_values = expected_digest.map(|e| e.value()).to_vec();
         // todo: fix this test
+        println!("expected digest: {expected_values:?}");
         println!("public output: {public_output:?}");
+        let a = expected_values[0];
+        let in_there = public_output.contains(&a);
+        println!("is in there? {in_there}");
         // let expected_output = vec![0; 16];
         // assert_eq!(expected_output, public_output);
     }
