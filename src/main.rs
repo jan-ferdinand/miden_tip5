@@ -298,22 +298,107 @@ pub const TIP5_LIB: &str = "
 
     proc.tip5_round_0
         exec.tip5_sbox_layer
+        # add round constants
+        add.13630775303355457758
+        swap.1  add.16896927574093233874 swap.1 
+        swap.2  add.10379449653650130495 swap.2 
+        swap.3  add.1965408364413093495  swap.3 
+        swap.4  add.15232538947090185111 swap.4 
+        swap.5  add.15892634398091747074 swap.5 
+        swap.6  add.3989134140024871768  swap.6 
+        swap.7  add.2851411912127730865  swap.7 
+        swap.8  add.8709136439293758776  swap.8 
+        swap.9  add.3694858669662939734  swap.9 
+        swap.10 add.12692440244315327141 swap.10
+        swap.11 add.10722316166358076749 swap.11
+        swap.12 add.12745429320441639448 swap.12
+        swap.13 add.17932424223723990421 swap.13
+        swap.14 add.7558102534867937463  swap.14
+        swap.15 add.15551047435855531404 swap.15
     end
 
     proc.tip5_round_1
         exec.tip5_sbox_layer
+        # add round constants
+        add.17532528648579384106
+        swap.1  add.5216785850422679555  swap.1
+        swap.2  add.15418071332095031847 swap.2
+        swap.3  add.11921929762955146258 swap.3
+        swap.4  add.9738718993677019874  swap.4
+        swap.5  add.3464580399432997147  swap.5
+        swap.6  add.13408434769117164050 swap.6
+        swap.7  add.264428218649616431   swap.7
+        swap.8  add.4436247869008081381  swap.8
+        swap.9  add.4063129435850804221  swap.9
+        swap.10 add.2865073155741120117  swap.10
+        swap.11 add.5749834437609765994  swap.11
+        swap.12 add.6804196764189408435  swap.12
+        swap.13 add.17060469201292988508 swap.13
+        swap.14 add.9475383556737206708  swap.14
+        swap.15 add.12876344085611465020 swap.15
     end
 
     proc.tip5_round_2
         exec.tip5_sbox_layer
+        # add round constants
+        add.13835756199368269249
+        swap.1  add.1648753455944344172  swap.1
+        swap.2  add.9836124473569258483  swap.2
+        swap.3  add.12867641597107932229 swap.3
+        swap.4  add.11254152636692960595 swap.4
+        swap.5  add.16550832737139861108 swap.5
+        swap.6  add.11861573970480733262 swap.6
+        swap.7  add.1256660473588673495  swap.7
+        swap.8  add.13879506000676455136 swap.8
+        swap.9  add.10564103842682358721 swap.9
+        swap.10 add.16142842524796397521 swap.10
+        swap.11 add.3287098591948630584  swap.11
+        swap.12 add.685911471061284805   swap.12
+        swap.13 add.5285298776918878023  swap.13
+        swap.14 add.18310953571768047354 swap.14
+        swap.15 add.3142266350630002035  swap.15
     end
 
     proc.tip5_round_3
         exec.tip5_sbox_layer
+        # add round constants
+        add.549990724933663297
+        swap.1  add.4901984846118077401  swap.1
+        swap.2  add.11458643033696775769 swap.2
+        swap.3  add.8706785264119212710  swap.3
+        swap.4  add.12521758138015724072 swap.4
+        swap.5  add.11877914062416978196 swap.5
+        swap.6  add.11333318251134523752 swap.6
+        swap.7  add.3933899631278608623  swap.7
+        swap.8  add.16635128972021157924 swap.8
+        swap.9  add.10291337173108950450 swap.9
+        swap.10 add.4142107155024199350  swap.10
+        swap.11 add.16973934533787743537 swap.11
+        swap.12 add.11068111539125175221 swap.12
+        swap.13 add.17546769694830203606 swap.13
+        swap.14 add.5315217744825068993  swap.14
+        swap.15 add.4609594252909613081  swap.15
     end
 
     proc.tip5_round_4
         exec.tip5_sbox_layer
+        # add round constants
+        add.3350107164315270407
+        swap.1  add.17715942834299349177 swap.1
+        swap.2  add.9600609149219873996  swap.2
+        swap.3  add.12894357635820003949 swap.3
+        swap.4  add.4597649658040514631  swap.4
+        swap.5  add.7735563950920491847  swap.5
+        swap.6  add.1663379455870887181  swap.6
+        swap.7  add.13889298103638829706 swap.7
+        swap.8  add.7375530351220884434  swap.8
+        swap.9  add.3502022433285269151  swap.9
+        swap.10 add.9231805330431056952  swap.10
+        swap.11 add.9252272755288523725  swap.11
+        swap.12 add.10014268662326746219 swap.12
+        swap.13 add.15565031632950843234 swap.13
+        swap.14 add.1209725273521819323  swap.14
+        swap.15 add.6024642864597845108  swap.15
     end
 
     proc.tip5
