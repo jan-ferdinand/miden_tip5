@@ -278,6 +278,7 @@ pub const TIP5_LIB: &str = "
     proc.tip5_split_and_lookup
         # Since the Tip5 initialization procedure has dumped the lookup table into addresses
         # 0..255, we can simply use the memory load instruction to do the lookups.
+        mul.4294967295              # un-montgomery
         u32split                    # _ lo hi
         u32checked_divmod.65536     # _ lo hi_lo hi_hi
         u32checked_divmod.256       # _ lo hi_lo hi_hi_lo hi_hi_hi
@@ -299,6 +300,7 @@ pub const TIP5_LIB: &str = "
         mem_load add                # _ hi lo_hi lo_lo
         add                         # _ hi lo
         add                         # _ result
+        div.4294967295              # re-montgomery
     end
 
     proc.tip5_sbox_layer
