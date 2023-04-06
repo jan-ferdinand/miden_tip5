@@ -278,29 +278,29 @@ pub const TIP5_LIB: &str = "
     proc.tip5_split_and_lookup
         # Since the Tip5 initialization procedure has dumped the lookup table into addresses
         # 0..255, we can simply use the memory load instruction to do the lookups.
-        mul.4294967295              # un-montgomery
-        u32split                    # _ lo hi
-        u32checked_divmod.65536     # _ lo hi_lo hi_hi
-        u32checked_divmod.256       # _ lo hi_lo hi_hi_lo hi_hi_hi
-        mem_load mul.256 swap.1     # _ lo hi_lo hi_hi_hi hi_hi_lo
-        mem_load add                # _ lo hi_lo hi_hi
-        mul.256 swap.1              # _ lo hi_hi hi_lo
-        u32checked_divmod.256       # _ lo hi_hi hi_lo_lo hi_lo_hi
-        mem_load mul.256 swap.1     # _ lo hi_hi hi_lo_hi hi_lo_lo
-        mem_load add                # _ lo hi_hi hi_lo
-        add                         # _ lo hi
-        swap.1                      # _ hi lo
-        u32checked_divmod.65536     # _ hi lo_lo lo_hi
-        u32checked_divmod.256       # _ hi lo_lo lo_hi_lo lo_hi_hi
-        mem_load mul.256 swap.1     # _ hi lo_lo lo_hi_hi lo_hi_lo
-        mem_load add                # _ hi lo_lo lo_hi
-        mul.256 swap.1              # _ hi lo_hi lo_lo
-        u32checked_divmod.256       # _ hi lo_hi lo_lo_lo lo_lo_hi
-        mem_load mul.256 swap.1     # _ hi lo_hi lo_lo_hi lo_lo_lo
-        mem_load add                # _ hi lo_hi lo_lo
-        add                         # _ hi lo
-        add                         # _ result
-        div.4294967295              # re-montgomery
+        mul.4294967295              # _ felt (un-montgomery'd)
+        u32split                    # _ lo  hi
+        u32checked_divmod.65536     # _ lo  hi_hi  hi_lo
+        u32checked_divmod.256       # _ lo  hi_hi  hi_lo_hi  hi_lo_lo
+        mem_load swap.1             # _ lo  hi_hi  hi_lo_lo' hi_lo_hi
+        mem_load mul.256 add        # _ lo  hi_hi  hi_lo'
+        swap.1                      # _ lo  hi_lo' hi_hi
+        u32checked_divmod.256       # _ lo  hi_lo' hi_hi_hi  hi_hi_lo
+        mem_load swap.1             # _ lo  hi_lo' hi_hi_lo' hi_hi_hi
+        mem_load mul.256 add        # _ lo  hi_lo' hi_hi'
+        mul.256 add                 # _ lo  hi'
+        mul.256 swap.1              # _ hi' lo
+        u32checked_divmod.65536     # _ hi' lo_hi  lo_lo
+        u32checked_divmod.256       # _ hi' lo_hi  lo_lo_hi  lo_lo_lo
+        mem_load swap.1             # _ hi' lo_hi  lo_lo_lo' lo_lo_hi
+        mem_load mul.256 add        # _ hi' lo_hi  lo_lo'
+        swap.1                      # _ hi' lo_lo' lo_hi
+        u32checked_divmod.256       # _ hi' lo_lo' lo_hi_hi  lo_hi_lo
+        mem_load swap.1             # _ hi' lo_lo' lo_hi_lo' lo_hi_hi
+        mem_load mul.256 add        # _ hi' lo_lo' lo_hi'
+        mul.256 add                 # _ hi' lo'
+        add                         # _ felt'
+        div.4294967295              # _ felt' (re-montgomery'd)
     end
 
     proc.tip5_sbox_layer
